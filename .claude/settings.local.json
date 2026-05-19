@@ -1,7 +1,30 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npx create-next-app@latest . --typescript --tailwind --eslint --app --no-src-dir --import-alias \"@/*\" --yes)"
+      "Bash(npx create-next-app@latest . --typescript --tailwind --eslint --app --no-src-dir --import-alias \"@/*\" --yes)",
+      "Bash(npm install *)",
+      "Bash(npx prisma *)",
+      "Bash(mkdir -p C:\\\\projekty\\\\vsrdcich\\\\lib C:\\\\projekty\\\\vsrdcich\\\\app\\\\api\\\\memorial C:\\\\projekty\\\\vsrdcich\\\\app\\\\api\\\\upload C:\\\\projekty\\\\vsrdcich\\\\app\\\\rozlouceni C:\\\\projekty\\\\vsrdcich\\\\app\\\\vytvoreni C:\\\\projekty\\\\vsrdcich\\\\app\\\\nahled C:\\\\projekty\\\\vsrdcich\\\\app\\\\objednavka C:\\\\projekty\\\\vsrdcich\\\\app\\\\rekapitulace \"C:\\\\projekty\\\\vsrdcich\\\\app\\\\[slug]\" C:\\\\projekty\\\\vsrdcich\\\\components 2>&1)",
+      "Bash(mkdir -p \"C:\\\\projekty\\\\vsrdcich\\\\app\\\\api\\\\memorial\\\\[id]\" \"C:\\\\projekty\\\\vsrdcich\\\\app\\\\api\\\\memorial\\\\[id]\\\\generate\" \"C:\\\\projekty\\\\vsrdcich\\\\app\\\\api\\\\order\" 2>&1)",
+      "Bash(npm run *)",
+      "Bash(mkdir -p \"C:\\\\Users\\\\radek\\\\.claude\\\\projects\\\\C--projekty-vsrdcich\\\\memory\" 2>&1)",
+      "Bash(Start-Sleep -Seconds 4)",
+      "Bash(Get-Content \"C:\\\\Users\\\\radek\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--projekty-vsrdcich\\\\b1d55313-0d9c-4443-9761-a3866327a662\\\\tasks\\\\be6mg12u3.output\")",
+      "Bash(Select-Object -Last 10)",
+      "PowerShell(Start-Process -FilePath \"npm\" -ArgumentList \"run\", \"dev\" -WorkingDirectory \"C:\\\\projekty\\\\vsrdcich\" -WindowStyle Hidden -PassThru)",
+      "Bash(mkdir -p \"C:\\\\projekty\\\\vsrdcich\\\\.claude\")",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(netstat -ano)",
+      "Bash(tasklist /FI \"PID eq 43976\")",
+      "PowerShell(Get-Process -Id 43976 -ErrorAction SilentlyContinue)",
+      "PowerShell(taskkill /PID 43976 /F)",
+      "mcp__Claude_in_Chrome__tabs_context_mcp",
+      "mcp__Claude_in_Chrome__navigate",
+      "mcp__Claude_in_Chrome__computer",
+      "Bash(git remote *)",
+      "Bash(git branch *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)"
     ]
   }
 }

@@ -1,0 +1,69 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model MemorialPage {
+  id            String     @id @default(uuid())
+  slug          String     @unique
+  deceasedName  String
+  birthDate     DateTime
+  deathDate     DateTime
+  creatorEmail  String
+  inputText     String?    @db.Text
+  generatedHtml String?    @db.Text
+  status        PageStatus @default(DRAFT)
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+
+  photos MemorialPhoto[]
+  order  Order?
+
+  @@map("memorial_pages")
+}
+
+model MemorialPhoto {
+  id         String   @id @default(uuid())
+  memorialId String
+  r2Key      String
+  r2Url      String
+  orderIndex Int      @default(0)
+  createdAt  DateTime @default(now())
+
+  memorial MemorialPage @relation(fields: [memorialId], references: [id], onDelete: Cascade)
+
+  @@map("memorial_photos")
+}
+
+model Order {
+  id             String        @id @default(uuid())
+  memorialId     String        @unique
+  fullName       String
+  email          String
+  street         String
+  city           String
+  postalCode     String
+  variableSymbol String        @unique
+  paymentStatus  PaymentStatus @default(PENDING)
+  amount         Int           @default(399)
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+
+  memorial MemorialPage @relation(fields: [memorialId], references: [id], onDelete: Cascade)
+
+  @@map("orders")
+}
+
+enum PageStatus {
+  DRAFT
+  ORDERED
+  PUBLISHED
+}
+
+enum PaymentStatus {
+  PENDING
+  PAID
+}
