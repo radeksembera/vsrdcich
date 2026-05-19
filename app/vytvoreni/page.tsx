@@ -25,25 +25,15 @@ function VytvoreniForm() {
     try {
       for (let i = 0; i < files.length; i++) {
         const file = files[i];
-        const res = await fetch("/api/upload", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            memorialId: id,
-            fileName: file.name,
-            contentType: file.type,
-            orderIndex: photos.length + i,
-          }),
-        });
+        const body = new FormData();
+        body.append("memorialId", id);
+        body.append("orderIndex", String(photos.length + i));
+        body.append("file", file);
+
+        const res = await fetch("/api/upload", { method: "POST", body });
 
         if (!res.ok) throw new Error("Nahrávání selhalo");
-        const { uploadUrl, publicUrl } = await res.json();
-
-        await fetch(uploadUrl, {
-          method: "PUT",
-          headers: { "Content-Type": file.type },
-          body: file,
-        });
+        const { publicUrl } = await res.json();
 
         setPhotos((prev) => [...prev, { url: publicUrl, name: file.name }]);
       }
